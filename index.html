@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
-<HTML lang="ko">
+<html lang="ko">
 <머리>
  <meta charset=>UTF-8">
- <meta 이름="뷰포트" 콘텐츠="width=장치 폭, 초기 스케일=1.0, 최대 스케일=1.0, 사용자 scalable=no">
- <제목>제1회 율곡중학교 학급 사진 콘테스트</제목>
+ <meta 이름="viewport" 콘텐츠="width=장치 폭, 초기 스케일=1.0, 최대 스케일=1.0, 사용자 scalable=no">
+ <title>제1회 율곡중학교 학급 사진 콘테스트</title>
   
- <!-- 글꼴 & 아이콘 -->
- <link rel="사전 연결" href="https://fonts.googleapis.com ">
- <링크 rel="사전 연결" href="https://fonts.gstatic.com "교차 출처>
+  <!-- 글꼴 & 아이콘 -->
+ <link rel="preconnect" href="https://fonts.googleapis.com ">
+ <link rel="preconnect" href="https://fonts.gstatic.com " 교차 출처>
  링크 href="https://fonts.googleapis.com/css2?family=Cinzel:wght @500;700&패밀리=Noto+Sans+KR:wight@300;400;500;700&패밀리=플레이페어+디스플레이:ital,wight@0,600;1,400&디스플레이=swap" rel="스타일시트">
  <링크 rel="스타일시트" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
 
- <!-- 라이브러리(3D 랜딩용 3.js, 시트)엑셀 내보내기용 JS) -->
+  <!-- 라이브러리 (3D 랜딩용 Three.js, 엑셀 내보내기용 SheetJS) -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js "></script>
- <script src="https://cdn.jsdelivr.net/npm/xlsx @0.18.5/dist/xlsx.full.min.js"></대본>
+ <script src="https://cdn.jsdelivr.net/npm/xlsx @0.18.5/dist/xlsx.full.min.js"></script>
 
- <스타일>
+  <스타일.>
  루트 {
  --bg-color: #0f172a;
  --card-bg: #1e293b;
@@ -26,7 +26,7 @@
  --테두리 색상: #334155;
  --museum-bg: #fcfbf9;
  --museum-text: #1a1a1a;
- }
+    }
 
  * {
  박스 sizing: 테두리 박스;
@@ -43,7 +43,7 @@
  오버플로-x: 숨겨진;
     }
 
-    /* 1. 랜딩 스크린 (3D 캔버스 + 인터랙티브 타이틀) */
+    /* 1. 랜딩 스크린 */
  #착륙 화면 {
  위치: 고정;
  상단: 0;
@@ -54,74 +54,74 @@
  디스플레이: 플렉스;
  플렉스 direction: 열;
  정당화 내용: 중심;
- 정렬 items: 중심;
- 텍스트 align: 중심;
- 커서: 포인터;
- 전환: 불투명도 0.8초, 가시성 0.8초;
- 배경: 방사형 gradient(중심 circle, #1e293b 0%, #0f172a 100%);
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: opacity 0.8s, visibility 0.8s;
+      background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
     }
 
- #착륙-canvas {
- 위치: 절대;
- 상단: 0;
- 왼쪽: 0;
- 너비: 100%;
- 높이: 100%;
- z-지수: 1;
+    #landing-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
 
- .landing 콘텐츠 {
- 위치: 상대적;
- z-지수: 2;
- 패딩: 2rem;
- 포인터-events: 없음;
+    .landing-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      pointer-events: none;
     }
 
- .badge {
- 디스플레이: 인라인 블록;
- 패딩: 6 px 16 px;
- 배경: rgba(56, 189, 248, 0.15);
- 테두리: 1 px 솔리드 var(--accent 색상);
- 색상: var(--accent 색상);
- 국경 radius: 20 px;
- 글꼴 크기: 0.9rem;
- 글꼴 무게: 500;
- 마진 바닥: 1.5렘;
- 문자 spacing: 1 px;
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
     }
 
- .landing-title {
- 글꼴 크기: 클램프(2rem, 6vw, 3.8rem);
- 글꼴 무게: 700;
- 선 높이: 1.3;
- 마진 바닥: 1.5렘;
- text-shadow: 0 10px 30px rgba(0,0,0,0.5);
- 배경: 선형 gradient(135 deg, #ffffff 0%, #cbd5e1 100%);
- -웹킷-배경-clip: 텍스트;
- -웹킷 텍스트 채우기 색상: 투명;
+    .landing-title {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
- .탭 명령어 {
- 글꼴 크기: 1.1rem;
- 색상: var(--accent 색상);
- 애니메이션: 펄스 2초 무한;
- 디스플레이: 플렉스;
- 정렬 items: 중심;
- 정당화 내용: 중심;
- 갭: 8 px;
+    .tap-instruction {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      animation: pulse 2s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
-    @키프레임 맥박 {
- 0%, 100% {불투명도: 0.4; 변환: 번역 Y(0); }
- 50% { 불투명도: 1; 변환: 번역 Y(-5px); }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-5px); }
     }
 
     /* 2. 메인 레이아웃 */
- .app-container {
- 최대 너비: 680 px;
- 여백: 0 auto;
- 패딩: 20 px;
- 최소 높이: 100vh;
+    .app-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -135,21 +135,21 @@
       margin-bottom: 24px;
     }
 
- .header-title {
- 글꼴 크기: 1.1rem;
- 글꼴 무게: 700;
- 색상: var(--accent 색상);
+    .header-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-color);
     }
 
- .admin-btn {
- 배경: 투명;
- 테두리: 1 px 솔리드 var(--경계 색상);
- 색상: var(--텍스트 muted);
- 패딩: 8 px 14 px;
- 국경 radius: 8 px;
- 글꼴 크기: 0.85rem;
- 커서: 포인터;
- 전환: 모든 0.2초;
+    .admin-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -256,23 +256,28 @@
       border: none;
       padding: 16px;
       border-radius: 12px;
- 글꼴 크기: 1.1rem;
- 글꼴 무게: 700;
- 커서: 포인터;
- 전이: 불투명도 0.2초, 변환 0.1초;
- 디스플레이: 플렉스;
- 정당화 내용: 중심;
- 정렬 items: 중심;
- 갭: 8 px;
- box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
     }
 
- .submit-btn:활성 {
- 변환: 스케일(0.98);
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     /* 모달 스타일링 */
-    .modal-overlay }
+    .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.85);
@@ -420,7 +425,7 @@
     .btn-download { background: var(--accent-color); color: #0f172a; }
     .btn-delete { background: #ef4444; color: #fff; }
 
-    /* Modern Museum Label Modal */
+    /* Museum Label Modal */
     .museum-label-container {
       background: var(--museum-bg);
       color: var(--museum-text);
@@ -452,73 +457,73 @@
       color: #111;
     }
 
- .museum 년 {
- 폰트 패밀리: '플레이페어 디스플레이', 세리프;
- 글꼴 크기: 1.1rem;
- 색상: #666;
+    .museum-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #666;
     }
 
- .museum-artist {
- 글꼴 크기: 0.95rem;
- 글꼴 무게: 500;
- 색상: #444;
- 마진 바닥: 4 px;
+    .museum-artist {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 4px;
     }
 
- .museum-매질 {
- 폰트 패밀리: '플레이페어 디스플레이', 세리프;
- 글꼴 스타일: 이탤릭체;
- 글꼴 크기: 0.85rem;
- 색상: #777;
- 마진 바닥: 18 px;
- 문자 spacing: 0.5 px;
+    .museum-medium {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
     }
 
- .museum-desc {
- 글꼴 크기: 0.92rem;
- 선 높이: 1.6;
- 색상: #333;
- 공백: 사전 줄;
- 텍스트 align: 정당화;
+    .museum-desc {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #333;
+      white-space: pre-wrap;
+      text-align: justify;
     }
 
- .museum-풋-BTN {
- 마진 탑: 24 px;
- 디스플레이: 플렉스;
- 정당화 내용: 유연한 끝;
- 갭: 8 px;
+    .museum-footer-btn {
+      margin-top: 24px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
     }
 
-    @미디어 인쇄 {
- 본문 * {가시성: 숨겨진; }
- .museum-라벨-container, .museum-라벨-container * {가시성: 가시성; }
- .museum-라벨-container {위치: 절대; 왼쪽: 0; 상단: 0; 너비: 100%; 박스 shadow: 없음; }
- .museum-footer-btn {디스플레이: 없음; }
+    @media print {
+      body * { visibility: hidden; }
+      .museum-label-container, .museum-label-container * { visibility: visible; }
+      .museum-label-container { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
+      .museum-footer-btn { display: none; }
     }
- </스타일>
-</머리>
-<바디>
+  </style>
+</head>
+<body>
 
- <!-- 1. 착륙 화면 -->
- <div id="landing 화면" 클릭="엔터앱()">
- <canvas ID="landing-canvas"></canvas>
- <div class="landing-콘텐츠">
- <div class="badge"<i class="fa-solid fa-camera"></i> 율곡중학교</div>
- <h1 class="landing-title">제1회 율곡중학교<br>학급 사진 콘테스트</h1>
- <div class="탭 명령어">
- <i class="fa-solid fa-hand-pointer"></i> 화면을 터치하여 사진 제출하기
- </div>
- </div>
- </div>
+  <!-- 1. 랜딩 화면 -->
+  <div id="landing-screen" onclick="enterApp()">
+    <canvas id="landing-canvas"></canvas>
+    <div class="landing-content">
+      <div class="badge"><i class="fa-solid fa-camera"></i> 율곡중학교</div>
+      <h1 class="landing-title">제1회 율곡중학교<br>학급 사진 콘테스트</h1>
+      <div class="tap-instruction">
+        <i class="fa-solid fa-hand-pointer"></i> 화면을 터치하여 사진 제출하기
+      </div>
+    </div>
+  </div>
 
- <!-- 2. 메인 앱 화면 -->
- <div class="앱-container">
- <header>
- <div class="header-title">율곡중학교 사진 콘테스트</div>
- <버튼 class="admin-btn" 클릭="openAdmin"AuthModal()">
- <i class="fa-solid fa-lock"></i> 관리자
- </버튼>
- </header>
+  <!-- 2. 메인 앱 화면 -->
+  <div class="app-container">
+    <header>
+      <div class="header-title">율곡중학교 사진 콘테스트</div>
+      <button class="admin-btn" onclick="openAdminAuthModal()">
+        <i class="fa-solid fa-lock"></i> 관리자
+      </button>
+    </header>
 
     <main>
       <form id="photo-form" class="form-card" onsubmit="handleFormSubmit(event)">
@@ -572,7 +577,7 @@
           <textarea id="photo-desc" rows="4" placeholder="사진에 담긴 학급의 이야기나 설명을 적어주세요." required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">
+        <button type="submit" id="submit-btn" class="submit-btn">
           <i class="fa-solid fa-paper-plane"></i> 제출하기
         </button>
       </form>
@@ -594,32 +599,30 @@
     </div>
   </div>
 
-  <!-- Admin Full Dashboard -->
+  <!-- Admin Dashboard -->
   <div id="admin-dashboard" class="admin-container">
     <div class="admin-header">
       <h2><i class="fa-solid fa-list-check"></i> 공모전 관리자 시스템</h2>
       <div class="admin-actions">
         <button class="btn-action excel" onclick="exportToExcel()">
- <i class="fa-solid fa-file-excel"></i> 엑셀 다운로드
- </버튼>
- <버튼 class="btn-action" 클릭="CloseAdminDashboard()">
- <i class="fa-solid fa-xmark"></i> 닫기
- </버튼>
- </div>
- </div>
- <div id="admin-photo-grid" 클래스="admin-grid">
- <!-- 동적으로 채워진 -->
- </div>
- </div>
+          <i class="fa-solid fa-file-excel"></i> 엑셀 다운로드
+        </button>
+        <button class="btn-action" onclick="closeAdminDashboard()">
+          <i class="fa-solid fa-xmark"></i> 닫기
+        </button>
+      </div>
+    </div>
+    <div id="admin-photo-grid" class="admin-grid"></div>
+  </div>
 
- <!-- 박물관 라벨 모달 -->
- <div id="museum-라벨-modal" 클래스="modal-overlay">
- <div class="museum-라벨-container">
- <div class="museum 레이블">
- <div class="museum-header">
- <span class="museum-title" ID="m-title">작품 제목</span>
- <span class="museum-연도">(2026)/<span>
- </div>
+  <!-- 박물관 라벨 모달 -->
+  <div id="museum-label-modal" class="modal-overlay">
+    <div class="museum-label-container">
+      <div class="museum-label">
+        <div class="museum-header">
+          <span class="museum-title" id="m-title">작품 제목</span>
+          <span class="museum-year">(2026)</span>
+        </div>
         <div class="museum-artist" id="m-artist">율곡중학교 1학년 1반</div>
         <div class="museum-medium">Inkjet print on photo paper</div>
         <div class="museum-desc" id="m-desc">작품 설명이 여기에 표시됩니다.</div>
@@ -631,10 +634,8 @@
     </div>
   </div>
 
+  <!-- Three.js 3D Background Script -->
   <script>
-    /* ----------------------------------------------------
-       1. Three.js Interactive 3D Canvas Background
-    ---------------------------------------------------- */
     let scene, camera, renderer, particles;
 
     function init3D() {
@@ -647,7 +648,6 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // Create Floating Particles
       const geometry = new THREE.BufferGeometry();
       const count = 300;
       const positions = new Float32Array(count * 3);
@@ -696,13 +696,32 @@
         landing.style.display = 'none';
       }, 800);
     }
+  </script>
 
-    /* ----------------------------------------------------
-       2. File Upload Handling & Image Processing
-    ---------------------------------------------------- */
-    let currentBase64Image = "";
+  <!-- Firebase Logic Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+ 가져오기 { getStore, ref, uploadBytes, getDownload"https://www.gstatic.com/firebasejs/12.17.1/firebase-storage.js "의 URL };
 
-    function handleFileSelect(event) {
+ const firebaseConfig = {
+ APIKey: "AIzaSy"BAn6hOar7TbTxfcjO2eA6vm8OtrsLK620,
+ authDomain: "photocontest-a88b7.firebaseapp.com ",
+ 프로젝트 ID: "포토콘테스트-a88b7",
+ storageBucket: "photocontest-a88b7.firebasestore.app",
+      messagingSenderId: "512882960463",
+      appId: "1:512882960463:web:92ab591a1a515ad027623a",
+      measurementId: "G-1QS32ZMYKH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    let selectedFile = null;
+    let globalSubmissions = [];
+
+    window.handleFileSelect = function(event) {
       const file = event.target.files[0];
       if (!file) return;
 
@@ -711,168 +730,180 @@
         return;
       }
 
+      selectedFile = file;
       const reader = new FileReader();
       reader.onload = function(e) {
-        currentBase64Image = e.target.result;
         const imgElement = document.getElementById('image-preview');
-        imgElement.src = currentBase64Image;
+        imgElement.src = e.target.result;
         imgElement.style.display = 'block';
         document.getElementById('upload-placeholder').style.display = 'none';
       };
       reader.readAsDataURL(file);
-    }
+    };
 
-    /* ----------------------------------------------------
-       3. Submission Management (LocalStorage / GitHub Server compatibility)
-    ---------------------------------------------------- */
-    function getSubmissions() {
-      return JSON.parse(localStorage.getItem('yulgok_submissions') || '[]');
-    }
-
-    function saveSubmissions(data) {
-      localStorage.setItem('yulgok_submissions', JSON.stringify(data));
-    }
-
-    function handleFormSubmit(event) {
+    window.handleFormSubmit = async function(event) {
       event.preventDefault();
 
       const grade = document.getElementById('grade-select').value;
       const classNum = document.getElementById('class-select').value;
       const title = document.getElementById('photo-title').value.trim();
       const desc = document.getElementById('photo-desc').value.trim();
+      const submitBtn = document.getElementById('submit-btn');
 
-      if (!currentBase64Image) {
+      if (!selectedFile) {
         alert('사진을 업로드해주세요.');
         return;
       }
 
-      const newSubmission = {
-        id: Date.now(),
-        grade: grade,
-        classNum: classNum,
-        title: title,
-        desc: desc,
-        image: currentBase64Image,
-        createdAt: new Date().toLocaleString('ko-KR')
-      };
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 업로드 중...';
 
-      const submissions = getSubmissions();
-      submissions.push(newSubmission);
-      saveSubmissions(submissions);
+        // 1. Firebase Storage에 이미지 파일 업로드
+        const fileRef = ref(storage, `photos/${Date.now()}_${selectedFile.name}`);
+        const snapshot = await uploadBytes(fileRef, selectedFile);
+        const imageUrl = await getDownloadURL(snapshot.ref);
 
-      alert(`${grade}학년 ${classNum}반 작품 제출이 성공적으로 완료되었습니다!`);
-      
-      // Reset Form
-      document.getElementById('photo-form').reset();
-      document.getElementById('image-preview').style.display = 'none';
-      document.getElementById('upload-placeholder').style.display = 'block';
-      currentBase64Image = "";
-    }
+        // 2. Firebase Firestore에 데이터 업로드
+        await addDoc(collection(db, "submissions"), {
+          grade: grade,
+          classNum: classNum,
+          title: title,
+          desc: desc,
+          image: imageUrl,
+          createdAt: new Date().toLocaleString('ko-KR')
+        });
 
-    /* ----------------------------------------------------
-       4. Admin Authentication & Dashboard Functions
-    ---------------------------------------------------- */
-    function openAdminAuthModal() {
+        alert(`${grade}학년 ${classNum}반 작품 제출이 성공적으로 완료되었습니다!`);
+
+        // 폼 초기화
+        document.getElementById('photo-form').reset();
+        document.getElementById('image-preview').style.display = 'none';
+        document.getElementById('upload-placeholder').style.display = 'block';
+        selectedFile = null;
+      } catch (error) {
+        console.error("제출 중 오류 발생:", error);
+        alert("제출 중 오류가 발생했습니다. 다시 시도해주세요.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 제출하기';
+      }
+    };
+
+    window.openAdminAuthModal = function() {
       document.getElementById('admin-pw').value = '';
       document.getElementById('admin-auth-modal').style.display = 'flex';
-    }
+    };
 
-    function verifyAdminPw() {
+    window.verifyAdminPw = async function() {
       const inputPw = document.getElementById('admin-pw').value;
       if (inputPw === '0319') {
         closeModal('admin-auth-modal');
-        renderAdminDashboard();
+        await renderAdminDashboard();
         document.getElementById('admin-dashboard').style.display = 'flex';
       } else {
         alert('비밀번호가 올바르지 않습니다.');
       }
-    }
+    };
 
-    function closeAdminDashboard() {
+    window.closeAdminDashboard = function() {
       document.getElementById('admin-dashboard').style.display = 'none';
-    }
+    };
 
-    function renderAdminDashboard() {
-      const grid = document.getElementById('admin-photo-grid');
-      const submissions = getSubmissions();
+    비동기 기능. 렌더AdminDashboard() {
+ const grid = document.getElementById('admin-photo-grid');
+ 그리드.innerHTML = '<p style="grid-column: 1/-1; 텍스트 align: 중심; 색상: var(--텍스트 muted); 패딩: 50 px;"><i class="fa-solid fa-spinner fa-spin"></i> 데이터를 불러오는 중...</p>';
 
-      if (submissions.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px;">제출된 작품이 아직 없습니다.</p>';
-        return;
+      해라 {
+ const q = query(collection(db, "제출"));
+ const querySnapshot = wait getDocs(q);
+ 전역 제출 = [];
+
+ 쿼리Snapshot.forEach(((docSnap)) => {
+ 전역 제출.push({
+ ID: docSnap.id ,
+ ...docSnap.data()
+ });
+ });
+ '. join('');
+ 만약 (globalSubmissions.length === 0) {
+ 그리드.innerHTML = '<p style="grid-column: 1/-1; 텍스트 align: 가운데; 색상: var(--텍스트 muted); 패딩: 50 px;">제출된 작품이 아직 없습니다.</p>';
+ 반환;
+        }
+
+ 그리드.innerHTML = globalSubmissions.map(항목 => '
+ <div class="포토카드" ID="카드-${item.id }">
+ <img src="${item.image}" class="포토카드-img" alt="${escapeHtml(item.title)}">
+ <div class="포토카드-바디">
+ <div class="포토카드-meta">율곡중학교 ${item.grade}학년 ${item.classNum}반</div>
+ <div class="포토카드-타이틀">${escapeHtml(item.title)}/div>
+ <div class="포토카드-desc">${escapeHtml(item.desc)}/div>
+ <div class="포토카드-BTNS">
+ 버튼 클래스="btn-sm btn-museum" 클릭="openMuseumLabel('${item.id }')">
+ <i class="fa-solid fa-monument"></i> 라벨
+ </버튼>
+ <버튼 class="btn-sm btn-download" 온클릭="다운로드이미지('${item.image})", "${item.grade}학년${item.classNum}반_${item.title}")">
+ <i class="fa-solid fa-download"></i> 다운
+ </버튼>
+ 버튼 클래스="btn-sm btn-삭제" 클릭="deleteSubmission('${item.id }')">
+ <i class="fa-solid fa-trash"></i> 삭제
+ </버튼>
+ </div>
+ </div>
+ </div>
+ '. join('');
+      } 또 만나 (오류) {
+ console.error ("데이터 로드 오류:", 오류);
+ 그리드.innerHTML = '<p style="grid-column: 1/-1; 텍스트 align: 가운데; 색상: #ef44444; 패딩: 50 px;">데이터를 불러오지 못했습니다.</p>';
       }
-
-      grid.innerHTML = submissions.map(item => `
-        <div class="photo-card" id="card-${item.id}">
-          <img src="${item.image}" class="photo-card-img" alt="${item.title}">
-          <div class="photo-card-body">
-            <div class="photo-card-meta">율곡중학교 ${item.grade}학년 ${item.classNum}반</div>
-            <div class="photo-card-title">${escapeHtml(item.title)}</div>
-            <div class="photo-card-desc">${escapeHtml(item.desc)}</div>
-            <div class="photo-card-btns">
-              <button class="btn-sm btn-museum" onclick="openMuseumLabel(${item.id})">
-                <i class="fa-solid fa-monument"></i> 라벨
-              </button>
-              <button class="btn-sm btn-download" onclick="downloadImage('${item.image}', '${item.grade}학년${item.classNum}반_${item.title}')">
-                <i class="fa-solid fa-download"></i> 다운
-              </button>
-              <button class="btn-sm btn-delete" onclick="deleteSubmission(${item.id})">
-                <i class="fa-solid fa-trash"></i> 삭제
-              </button>
-            </div>
-          </div>
-        </div>
-      `).join('');
     }
 
-    function deleteSubmission(id) {
-      if (confirm('해당 작품을 삭제하시겠습니까?')) {
-        let submissions = getSubmissions();
-        submissions = submissions.filter(item => item.id !== id);
-        saveSubmissions(submissions);
-        renderAdminDashboard();
+ window.deleteSubmission = 비동기 함수(ID) {
+ 한다면 (확인.('해당 작품을 삭제하시겠습니까?')) {
+        해라 {
+ 대기 삭제Doc(doc(db, "제출", ID));
+ 대기 렌더AdminDashboard();
+        } 또 만나 (오류) {
+ console.error ("삭제 실패:", 오류);
+ alert("삭제 도중 오류가 발생했습니다.");
+        }
       }
-    }
+ }
 
-    function downloadImage(dataUrl, filename) {
-      const link = document.createElement('a');
-      link.href = dataUrl;
-      link.download = `율곡중_${filename}.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+ window.downloadImage = 함수(url, 파일 이름) {
+ const a = document.createElement('a');
+ a.href = url;
+ a.target = '_blank';
+ a.download = '율곡중_${filename}.jpg';
+ document.body.appendChild(a);
+ a.클릭 ();
+ document.body.removeChild(a);
+ }
 
-    /* ----------------------------------------------------
-       5. Museum Label Generator
-    ---------------------------------------------------- */
-    function openMuseumLabel(id) {
-      const submissions = getSubmissions();
-      const item = submissions.find(s => s.id === id);
-  </script>
+ window.openMuseumLabel = 함수(id) {
+ const 항목 = globalSubmissions.find(s => s.id === id);
+ 만약 (!아이템)이 돌아온다면;
 
-      document.getElementById('m-title').텍스트 내용 = 항목.title;
+ document.getElementById('m-title').텍스트 내용 = 항목.title;
  document.getElementById('m-artist').텍스트 내용 = '율곡중학교 ${item.grade}학년 ${item.classNum}반';
  document.getElementById('m-desk').텍스트 내용 = 항목.desc;
 
  document.getElementById('museum-label-modal').style.display = 'flex';
  }
 
- /* ----------------------------------------------------
- 6. 엑셀 내보내기
----------------------------------------------------- */
- 함수 내보내기ToExcel() {
- const Submissions = getSubmissions();
- 만약 (제출.길이 === 0) {
+ window.exportToExcel = 함수 () {
+ 만약 (전역 제출.length === 0) {
  alert('다운로드할 데이터가 없습니다.');
  반환;
  }
 
- const excelData = submissions.map(((항목, 인덱스)) =>{{{{}})
+ const excelData = globalSubmissions.map((항목, 인덱스) => {{
  "번호": 인덱스 + 1,
  "학년": '${item.grade}학년',
  "반": '${item.classNum}반',
  "작품 제목": 항목.title,
  "작품 설명": 항목.desc,
+ "사진 URL": item.image,
  "제출 일시": item.createAt
  }));
 
@@ -881,44 +912,21 @@
  XLSX.utils.book_append_sheet(workbook, 워크시트, "제출작품목록");
 
  XLSX.writeFile(workbook, `제1회_율곡중학교_학급사진콘테스트_제출목록.xlsx`);
- }
+ };
 
- /* 도우미 */
- 함수 closeModal(modalId) {
+ window.closeModal = 함수(modalId) {
  document.getElementById(modalId).style.display = 'none';
- }
+ };
 
  함수 이스케이프Html(텍스트) {
+ (!text)가 반환되면;
  텍스트 반환
  .replace(/&/g, "&amp;")
- .replace(//g, "<")
+ .replace(///g, "<")
  .replace(/>/g, "&gt;")
- .replace(/"/g", "")
+ .replace(/"/g, "")
  .replace(/'/g, "");
  }
  </대본>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBAn6hOar7TbTxfcjO2eA6vm8OtrsLK620",
-    authDomain: "photocontest-a88b7.firebaseapp.com",
-    projectId: "photocontest-a88b7",
-    storageBucket: "photocontest-a88b7.firebasestorage.app",
-    messagingSenderId: "512882960463",
-    appId: "1:512882960463:web:92ab591a1a515ad027623a",
-    measurementId: "G-1QS32ZMYKH"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
 </몸>
 </html>
