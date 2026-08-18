@@ -13,7 +13,7 @@
 
  <!-- 라이브러리(3D 랜딩용 3.js, 시트)엑셀 내보내기용 JS) -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js "></script>
- <script src="https://cdn.jsdelivr.net/npm/xlsx @0.18.5/dist/xlsx.full.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/xlsx @0.18.5/dist/xlsx.full.min.js"></대본>
 
  <스타일>
  루트 {
@@ -36,92 +36,92 @@
  -웹킷 탭 highlight 색상: 투명;
     }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      min-height: 100vh;
-      overflow-x: hidden;
+    몸 {
+ 배경색: var(--bg-색);
+ 색상: var(--text-main);
+ 최소 높이: 100vh;
+ 오버플로-x: 숨겨진;
     }
 
-    /* 1. Landing Screen (3D Canvas + Interactive Title) */
-    #landing-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      cursor: pointer;
-      transition: opacity 0.8s ease, visibility 0.8s;
-      background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    /* 1. 랜딩 스크린 (3D 캔버스 + 인터랙티브 타이틀) */
+ #착륙 화면 {
+ 위치: 고정;
+ 상단: 0;
+ 왼쪽: 0;
+ 폭: 100vw;
+ 높이: 100vh;
+ z-인덱스: 100;
+ 디스플레이: 플렉스;
+ 플렉스 direction: 열;
+ 정당화 내용: 중심;
+ 정렬 items: 중심;
+ 텍스트 align: 중심;
+ 커서: 포인터;
+ 전환: 불투명도 0.8초, 가시성 0.8초;
+ 배경: 방사형 gradient(중심 circle, #1e293b 0%, #0f172a 100%);
     }
 
-    #landing-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
+ #착륙-canvas {
+ 위치: 절대;
+ 상단: 0;
+ 왼쪽: 0;
+ 너비: 100%;
+ 높이: 100%;
+ z-지수: 1;
     }
 
-    .landing-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-      pointer-events: none;
+ .landing 콘텐츠 {
+ 위치: 상대적;
+ z-지수: 2;
+ 패딩: 2rem;
+ 포인터-events: 없음;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 6px 16px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      letter-spacing: 1px;
+ .badge {
+ 디스플레이: 인라인 블록;
+ 패딩: 6 px 16 px;
+ 배경: rgba(56, 189, 248, 0.15);
+ 테두리: 1 px 솔리드 var(--accent 색상);
+ 색상: var(--accent 색상);
+ 국경 radius: 20 px;
+ 글꼴 크기: 0.9rem;
+ 글꼴 무게: 500;
+ 마진 바닥: 1.5렘;
+ 문자 spacing: 1 px;
     }
 
-    .landing-title {
-      font-size: clamp(2rem, 6vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+ .landing-title {
+ 글꼴 크기: 클램프(2rem, 6vw, 3.8rem);
+ 글꼴 무게: 700;
+ 선 높이: 1.3;
+ 마진 바닥: 1.5렘;
+ text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+ 배경: 선형 gradient(135 deg, #ffffff 0%, #cbd5e1 100%);
+ -웹킷-배경-clip: 텍스트;
+ -웹킷 텍스트 채우기 색상: 투명;
     }
 
-    .tap-instruction {
-      font-size: 1.1rem;
-      color: var(--accent-color);
-      animation: pulse 2s infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+ .탭 명령어 {
+ 글꼴 크기: 1.1rem;
+ 색상: var(--accent 색상);
+ 애니메이션: 펄스 2초 무한;
+ 디스플레이: 플렉스;
+ 정렬 items: 중심;
+ 정당화 내용: 중심;
+ 갭: 8 px;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.4; transform: translateY(0); }
-      50% { opacity: 1; transform: translateY(-5px); }
+    @키프레임 맥박 {
+ 0%, 100% {불투명도: 0.4; 변환: 번역 Y(0); }
+ 50% { 불투명도: 1; 변환: 번역 Y(-5px); }
     }
 
-    /* 2. Main Layout */
-    .app-container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 20px;
-      min-height: 100vh;
+    /* 2. 메인 레이아웃 */
+ .app-container {
+ 최대 너비: 680 px;
+ 여백: 0 auto;
+ 패딩: 20 px;
+ 최소 높이: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -135,21 +135,21 @@
       margin-bottom: 24px;
     }
 
-    .header-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent-color);
+ .header-title {
+ 글꼴 크기: 1.1rem;
+ 글꼴 무게: 700;
+ 색상: var(--accent 색상);
     }
 
-    .admin-btn {
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
+ .admin-btn {
+ 배경: 투명;
+ 테두리: 1 px 솔리드 var(--경계 색상);
+ 색상: var(--텍스트 muted);
+ 패딩: 8 px 14 px;
+ 국경 radius: 8 px;
+ 글꼴 크기: 0.85rem;
+ 커서: 포인터;
+ 전환: 모든 0.2초;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -256,23 +256,23 @@
       border: none;
       padding: 16px;
       border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.1s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+ 글꼴 크기: 1.1rem;
+ 글꼴 무게: 700;
+ 커서: 포인터;
+ 전이: 불투명도 0.2초, 변환 0.1초;
+ 디스플레이: 플렉스;
+ 정당화 내용: 중심;
+ 정렬 items: 중심;
+ 갭: 8 px;
+ box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
     }
 
-    .submit-btn:active {
-      transform: scale(0.98);
+ .submit-btn:활성 {
+ 변환: 스케일(0.98);
     }
 
-    /* Modal Styling */
-    .modal-overlay {
+    /* 모달 스타일링 */
+    .modal-overlay }
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.85);
@@ -452,73 +452,73 @@
       color: #111;
     }
 
-    .museum-year {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: #666;
+ .museum 년 {
+ 폰트 패밀리: '플레이페어 디스플레이', 세리프;
+ 글꼴 크기: 1.1rem;
+ 색상: #666;
     }
 
-    .museum-artist {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #444;
-      margin-bottom: 4px;
+ .museum-artist {
+ 글꼴 크기: 0.95rem;
+ 글꼴 무게: 500;
+ 색상: #444;
+ 마진 바닥: 4 px;
     }
 
-    .museum-medium {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: #777;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
+ .museum-매질 {
+ 폰트 패밀리: '플레이페어 디스플레이', 세리프;
+ 글꼴 스타일: 이탤릭체;
+ 글꼴 크기: 0.85rem;
+ 색상: #777;
+ 마진 바닥: 18 px;
+ 문자 spacing: 0.5 px;
     }
 
-    .museum-desc {
-      font-size: 0.92rem;
-      line-height: 1.6;
-      color: #333;
-      white-space: pre-line;
-      text-align: justify;
+ .museum-desc {
+ 글꼴 크기: 0.92rem;
+ 선 높이: 1.6;
+ 색상: #333;
+ 공백: 사전 줄;
+ 텍스트 align: 정당화;
     }
 
-    .museum-footer-btn {
-      margin-top: 24px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
+ .museum-풋-BTN {
+ 마진 탑: 24 px;
+ 디스플레이: 플렉스;
+ 정당화 내용: 유연한 끝;
+ 갭: 8 px;
     }
 
-    @media print {
-      body * { visibility: hidden; }
-      .museum-label-container, .museum-label-container * { visibility: visible; }
-      .museum-label-container { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
-      .museum-footer-btn { display: none; }
+    @미디어 인쇄 {
+ 본문 * {가시성: 숨겨진; }
+ .museum-라벨-container, .museum-라벨-container * {가시성: 가시성; }
+ .museum-라벨-container {위치: 절대; 왼쪽: 0; 상단: 0; 너비: 100%; 박스 shadow: 없음; }
+ .museum-footer-btn {디스플레이: 없음; }
     }
-  </style>
-</head>
-<body>
+ </스타일>
+</머리>
+<바디>
 
-  <!-- 1. Landing Screen -->
-  <div id="landing-screen" onclick="enterApp()">
-    <canvas id="landing-canvas"></canvas>
-    <div class="landing-content">
-      <div class="badge"><i class="fa-solid fa-camera"></i> YULGOK MIDDLE SCHOOL</div>
-      <h1 class="landing-title">제1회 율곡중학교<br>학급 사진 콘테스트</h1>
-      <div class="tap-instruction">
-        <i class="fa-solid fa-hand-pointer"></i> 화면을 터치하여 사진 제출하기
-      </div>
-    </div>
-  </div>
+ <!-- 1. 착륙 화면 -->
+ <div id="landing 화면" 클릭="엔터앱()">
+ <canvas ID="landing-canvas"></canvas>
+ <div class="landing-콘텐츠">
+ <div class="badge"<i class="fa-solid fa-camera"></i> 율곡중학교</div>
+ <h1 class="landing-title">제1회 율곡중학교<br>학급 사진 콘테스트</h1>
+ <div class="탭 명령어">
+ <i class="fa-solid fa-hand-pointer"></i> 화면을 터치하여 사진 제출하기
+ </div>
+ </div>
+ </div>
 
-  <!-- 2. Main App Screen -->
-  <div class="app-container">
-    <header>
-      <div class="header-title">율곡중학교 사진 콘테스트</div>
-      <button class="admin-btn" onclick="openAdminAuthModal()">
-        <i class="fa-solid fa-lock"></i> 관리자
-      </button>
-    </header>
+ <!-- 2. 메인 앱 화면 -->
+ <div class="앱-container">
+ <header>
+ <div class="header-title">율곡중학교 사진 콘테스트</div>
+ <버튼 class="admin-btn" 클릭="openAdmin"AuthModal()">
+ <i class="fa-solid fa-lock"></i> 관리자
+ </버튼>
+ </header>
 
     <main>
       <form id="photo-form" class="form-card" onsubmit="handleFormSubmit(event)">
@@ -600,26 +600,26 @@
       <h2><i class="fa-solid fa-list-check"></i> 공모전 관리자 시스템</h2>
       <div class="admin-actions">
         <button class="btn-action excel" onclick="exportToExcel()">
-          <i class="fa-solid fa-file-excel"></i> 엑셀 다운로드
-        </button>
-        <button class="btn-action" onclick="closeAdminDashboard()">
-          <i class="fa-solid fa-xmark"></i> 닫기
-        </button>
-      </div>
-    </div>
-    <div id="admin-photo-grid" class="admin-grid">
-      <!-- Dynamically populated -->
-    </div>
-  </div>
+ <i class="fa-solid fa-file-excel"></i> 엑셀 다운로드
+ </버튼>
+ <버튼 class="btn-action" 클릭="CloseAdminDashboard()">
+ <i class="fa-solid fa-xmark"></i> 닫기
+ </버튼>
+ </div>
+ </div>
+ <div id="admin-photo-grid" 클래스="admin-grid">
+ <!-- 동적으로 채워진 -->
+ </div>
+ </div>
 
-  <!-- Museum Label Modal -->
-  <div id="museum-label-modal" class="modal-overlay">
-    <div class="museum-label-container">
-      <div class="museum-label">
-        <div class="museum-header">
-          <span class="museum-title" id="m-title">작품 제목</span>
-          <span class="museum-year">(2026)</span>
-        </div>
+ <!-- 박물관 라벨 모달 -->
+ <div id="museum-라벨-modal" 클래스="modal-overlay">
+ <div class="museum-라벨-container">
+ <div class="museum 레이블">
+ <div class="museum-header">
+ <span class="museum-title" ID="m-title">작품 제목</span>
+ <span class="museum-연도">(2026)/<span>
+ </div>
         <div class="museum-artist" id="m-artist">율곡중학교 1학년 1반</div>
         <div class="museum-medium">Inkjet print on photo paper</div>
         <div class="museum-desc" id="m-desc">작품 설명이 여기에 표시됩니다.</div>
@@ -861,14 +861,14 @@
  6. 엑셀 내보내기
 ---------------------------------------------------- */
  함수 내보내기ToExcel() {
-      const Submissions = getSubmissions();
-      만약 (제출.길이 === 0) {
-        alert('다운로드할 데이터가 없습니다.');
-        반환;
-      }
+ const Submissions = getSubmissions();
+ 만약 (제출.길이 === 0) {
+ alert('다운로드할 데이터가 없습니다.');
+ 반환;
+ }
 
- const excelData = submissions.map(((항목, 인덱스) => {{)
-        "번호": 인덱스 + 1,
+ const excelData = submissions.map(((항목, 인덱스)) =>{{{{}})
+ "번호": 인덱스 + 1,
  "학년": '${item.grade}학년',
  "반": '${item.classNum}반',
  "작품 제목": 항목.title,
@@ -885,17 +885,40 @@
 
  /* 도우미 */
  함수 closeModal(modalId) {
-      document.getElementById(modalId).style.display = 'none';
-    }
+ document.getElementById(modalId).style.display = 'none';
+ }
 
  함수 이스케이프Html(텍스트) {
-      텍스트 반환
-        .replace(/&/g, "&amp;")
-        .replace(///g, "<")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g", "")
-        .replace(/'/g, "");
-    }
- </script>
-</body>
+ 텍스트 반환
+ .replace(/&/g, "&amp;")
+ .replace(//g, "<")
+ .replace(/>/g, "&gt;")
+ .replace(/"/g", "")
+ .replace(/'/g, "");
+ }
+ </대본>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBAn6hOar7TbTxfcjO2eA6vm8OtrsLK620",
+    authDomain: "photocontest-a88b7.firebaseapp.com",
+    projectId: "photocontest-a88b7",
+    storageBucket: "photocontest-a88b7.firebasestorage.app",
+    messagingSenderId: "512882960463",
+    appId: "1:512882960463:web:92ab591a1a515ad027623a",
+    measurementId: "G-1QS32ZMYKH"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</몸>
 </html>
