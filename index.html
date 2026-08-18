@@ -1,59 +1,56 @@
 <!DOCTYPE HTML>
 <html lang="ko">
-<머리>
- <meta charset=>UTF-8">
- <meta 이름="viewport" 콘텐츠="width=장치 폭, 초기 스케일=1.0, 최대 스케일=1.0, 사용자 scalable=no">
- <title>제1회 율곡중학교 학급 사진 콘테스트</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>제1회 율곡중학교 학급 사진 콘테스트</title>
   
-  <!-- 글꼴 & 아이콘 -->
- <link rel="preconnect" href="https://fonts.googleapis.com ">
- <link rel="preconnect" href="https://fonts.gstatic.com " 교차 출처>
- 링크 href="https://fonts.googleapis.com/css2?family=Cinzel:wght @500;700&패밀리=Noto+Sans+KR:wight@300;400;500;700&패밀리=플레이페어+디스플레이:ital,wight@0,600;1,400&디스플레이=swap" rel="스타일시트">
- <링크 rel="스타일시트" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- 라이브러리 (3D 랜딩용 Three.js, 엑셀 내보내기용 SheetJS) -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js "></script>
- <script src="https://cdn.jsdelivr.net/npm/xlsx @0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
-  <스타일.>
- 루트 {
- --bg-color: #0f172a;
- --card-bg: #1e293b;
- --억양-색상: #38bdf8;
- --악센트-hover: #0284c7;
- --text-main: #f8fafc;
- --text-muted: #94a3b8;
- --테두리 색상: #334155;
- --museum-bg: #fcfbf9;
- --museum-text: #1a1a1a;
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --accent-color: #38bdf8;
+      --accent-hover: #0284c7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --museum-bg: #fcfbf9;
+      --museum-text: #1a1a1a;
     }
 
- * {
- 박스 sizing: 테두리 박스;
- 여백: 0;
- 패딩: 0;
- 폰트 패밀리: '노토 산스 KR', 산세리프;
- -웹킷 탭 highlight 색상: 투명;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    몸 {
- 배경색: var(--bg-색);
- 색상: var(--text-main);
- 최소 높이: 100vh;
- 오버플로-x: 숨겨진;
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* 1. 랜딩 스크린 */
- #착륙 화면 {
- 위치: 고정;
- 상단: 0;
- 왼쪽: 0;
- 폭: 100vw;
- 높이: 100vh;
- z-인덱스: 100;
- 디스플레이: 플렉스;
- 플렉스 direction: 열;
- 정당화 내용: 중심;
+    #landing-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
       text-align: center;
       cursor: pointer;
@@ -116,7 +113,6 @@
       50% { opacity: 1; transform: translateY(-5px); }
     }
 
-    /* 2. 메인 레이아웃 */
     .app-container {
       max-width: 680px;
       margin: 0 auto;
@@ -160,7 +156,6 @@
       color: var(--text-main);
     }
 
-    /* Form Styles */
     .form-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -197,7 +192,7 @@
       margin-bottom: 8px;
     }
 
-    select, input[type="text"], textarea {
+    select, input[type="text"], textarea, input[type="password"] {
       width: 100%;
       background: #0f172a;
       border: 1px solid var(--border-color);
@@ -213,7 +208,6 @@
       border-color: var(--accent-color);
     }
 
-    /* File Upload Box */
     .file-upload-box {
       border: 2px dashed var(--border-color);
       border-radius: 12px;
@@ -276,7 +270,6 @@
       cursor: not-allowed;
     }
 
-    /* 모달 스타일링 */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -299,7 +292,6 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
 
-    /* Admin View */
     .admin-container {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
@@ -425,7 +417,6 @@
     .btn-download { background: var(--accent-color); color: #0f172a; }
     .btn-delete { background: #ef4444; color: #fff; }
 
-    /* Museum Label Modal */
     .museum-label-container {
       background: var(--museum-bg);
       color: var(--museum-text);
@@ -504,7 +495,6 @@
 </head>
 <body>
 
-  <!-- 1. 랜딩 화면 -->
   <div id="landing-screen" onclick="enterApp()">
     <canvas id="landing-canvas"></canvas>
     <div class="landing-content">
@@ -516,7 +506,6 @@
     </div>
   </div>
 
-  <!-- 2. 메인 앱 화면 -->
   <div class="app-container">
     <header>
       <div class="header-title">율곡중학교 사진 콘테스트</div>
@@ -584,7 +573,6 @@
     </main>
   </div>
 
-  <!-- Admin Login Modal -->
   <div id="admin-auth-modal" class="modal-overlay">
     <div class="modal-card">
       <h3 style="margin-bottom: 16px;"><i class="fa-solid fa-user-shield"></i> 관리자 인증</h3>
@@ -599,7 +587,6 @@
     </div>
   </div>
 
-  <!-- Admin Dashboard -->
   <div id="admin-dashboard" class="admin-container">
     <div class="admin-header">
       <h2><i class="fa-solid fa-list-check"></i> 공모전 관리자 시스템</h2>
@@ -615,7 +602,6 @@
     <div id="admin-photo-grid" class="admin-grid"></div>
   </div>
 
-  <!-- 박물관 라벨 모달 -->
   <div id="museum-label-modal" class="modal-overlay">
     <div class="museum-label-container">
       <div class="museum-label">
@@ -634,7 +620,6 @@
     </div>
   </div>
 
-  <!-- Three.js 3D Background Script -->
   <script>
     let scene, camera, renderer, particles;
 
@@ -698,17 +683,15 @@
     }
   </script>
 
-  <!-- Firebase Logic Script -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
- 가져오기 { getStore, ref, uploadBytes, getDownload"https://www.gstatic.com/firebasejs/12.17.1/firebase-storage.js "의 URL };
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
- const firebaseConfig = {
- APIKey: "AIzaSy"BAn6hOar7TbTxfcjO2eA6vm8OtrsLK620,
- authDomain: "photocontest-a88b7.firebaseapp.com ",
- 프로젝트 ID: "포토콘테스트-a88b7",
- storageBucket: "photocontest-a88b7.firebasestore.app",
+    const firebaseConfig = {
+      apiKey: "AIzaSyBAn6hOar7TbTxfcjO2eA6vm8OtrsLK620",
+      authDomain: "photocontest-a88b7.firebaseapp.com",
+      projectId: "photocontest-a88b7",
+      storageBucket: "photocontest-a88b7.firebasestorage.app",
       messagingSenderId: "512882960463",
       appId: "1:512882960463:web:92ab591a1a515ad027623a",
       measurementId: "G-1QS32ZMYKH"
@@ -716,9 +699,8 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    const storage = getStorage(app);
 
-    let selectedFile = null;
+    let selectedBase64Image = "";
     let globalSubmissions = [];
 
     window.handleFileSelect = function(event) {
@@ -730,13 +712,33 @@
         return;
       }
 
-      selectedFile = file;
       const reader = new FileReader();
       reader.onload = function(e) {
-        const imgElement = document.getElementById('image-preview');
-        imgElement.src = e.target.result;
-        imgElement.style.display = 'block';
-        document.getElementById('upload-placeholder').style.display = 'none';
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          
+          const MAX_WIDTH = 1000;
+          if (width > MAX_WIDTH) {
+            height = Math.round((height * MAX_WIDTH) / width);
+            width = MAX_WIDTH;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          selectedBase64Image = canvas.toDataURL('image/jpeg', 0.7);
+
+          const imgElement = document.getElementById('image-preview');
+          imgElement.src = selectedBase64Image;
+          imgElement.style.display = 'block';
+          document.getElementById('upload-placeholder').style.display = 'none';
+        };
       };
       reader.readAsDataURL(file);
     };
@@ -750,7 +752,7 @@
       const desc = document.getElementById('photo-desc').value.trim();
       const submitBtn = document.getElementById('submit-btn');
 
-      if (!selectedFile) {
+      if (!selectedBase64Image) {
         alert('사진을 업로드해주세요.');
         return;
       }
@@ -759,28 +761,21 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 업로드 중...';
 
-        // 1. Firebase Storage에 이미지 파일 업로드
-        const fileRef = ref(storage, `photos/${Date.now()}_${selectedFile.name}`);
-        const snapshot = await uploadBytes(fileRef, selectedFile);
-        const imageUrl = await getDownloadURL(snapshot.ref);
-
-        // 2. Firebase Firestore에 데이터 업로드
         await addDoc(collection(db, "submissions"), {
           grade: grade,
           classNum: classNum,
           title: title,
           desc: desc,
-          image: imageUrl,
+          image: selectedBase64Image,
           createdAt: new Date().toLocaleString('ko-KR')
         });
 
         alert(`${grade}학년 ${classNum}반 작품 제출이 성공적으로 완료되었습니다!`);
 
-        // 폼 초기화
         document.getElementById('photo-form').reset();
         document.getElementById('image-preview').style.display = 'none';
         document.getElementById('upload-placeholder').style.display = 'block';
-        selectedFile = null;
+        selectedBase64Image = "";
       } catch (error) {
         console.error("제출 중 오류 발생:", error);
         alert("제출 중 오류가 발생했습니다. 다시 시도해주세요.");
@@ -810,123 +805,121 @@
       document.getElementById('admin-dashboard').style.display = 'none';
     };
 
-    비동기 기능. 렌더AdminDashboard() {
- const grid = document.getElementById('admin-photo-grid');
- 그리드.innerHTML = '<p style="grid-column: 1/-1; 텍스트 align: 중심; 색상: var(--텍스트 muted); 패딩: 50 px;"><i class="fa-solid fa-spinner fa-spin"></i> 데이터를 불러오는 중...</p>';
+    async function renderAdminDashboard() {
+      const grid = document.getElementById('admin-photo-grid');
+      grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px;"><i class="fa-solid fa-spinner fa-spin"></i> 데이터를 불러오는 중...</p>';
 
-      해라 {
- const q = query(collection(db, "제출"));
- const querySnapshot = wait getDocs(q);
- 전역 제출 = [];
+      try {
+        const q = query(collection(db, "submissions"));
+        const querySnapshot = await getDocs(q);
+        globalSubmissions = [];
 
- 쿼리Snapshot.forEach(((docSnap)) => {
- 전역 제출.push({
- ID: docSnap.id ,
- ...docSnap.data()
- });
- });
- '. join('');
- 만약 (globalSubmissions.length === 0) {
- 그리드.innerHTML = '<p style="grid-column: 1/-1; 텍스트 align: 가운데; 색상: var(--텍스트 muted); 패딩: 50 px;">제출된 작품이 아직 없습니다.</p>';
- 반환;
+        querySnapshot.forEach((docSnap) => {
+          globalSubmissions.push({
+            id: docSnap.id,
+            ...docSnap.data()
+          });
+        });
+
+        if (globalSubmissions.length === 0) {
+          grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px;">제출된 작품이 아직 없습니다.</p>';
+          return;
         }
 
- 그리드.innerHTML = globalSubmissions.map(항목 => '
- <div class="포토카드" ID="카드-${item.id }">
- <img src="${item.image}" class="포토카드-img" alt="${escapeHtml(item.title)}">
- <div class="포토카드-바디">
- <div class="포토카드-meta">율곡중학교 ${item.grade}학년 ${item.classNum}반</div>
- <div class="포토카드-타이틀">${escapeHtml(item.title)}/div>
- <div class="포토카드-desc">${escapeHtml(item.desc)}/div>
- <div class="포토카드-BTNS">
- 버튼 클래스="btn-sm btn-museum" 클릭="openMuseumLabel('${item.id }')">
- <i class="fa-solid fa-monument"></i> 라벨
- </버튼>
- <버튼 class="btn-sm btn-download" 온클릭="다운로드이미지('${item.image})", "${item.grade}학년${item.classNum}반_${item.title}")">
- <i class="fa-solid fa-download"></i> 다운
- </버튼>
- 버튼 클래스="btn-sm btn-삭제" 클릭="deleteSubmission('${item.id }')">
- <i class="fa-solid fa-trash"></i> 삭제
- </버튼>
- </div>
- </div>
- </div>
- '. join('');
-      } 또 만나 (오류) {
- console.error ("데이터 로드 오류:", 오류);
- 그리드.innerHTML = '<p style="grid-column: 1/-1; 텍스트 align: 가운데; 색상: #ef44444; 패딩: 50 px;">데이터를 불러오지 못했습니다.</p>';
+        grid.innerHTML = globalSubmissions.map(item => `
+          <div class="photo-card" id="card-${item.id}">
+            <img src="${item.image}" class="photo-card-img" alt="${escapeHtml(item.title)}">
+            <div class="photo-card-body">
+              <div class="photo-card-meta">율곡중학교 ${item.grade}학년 ${item.classNum}반</div>
+              <div class="photo-card-title">${escapeHtml(item.title)}</div>
+              <div class="photo-card-desc">${escapeHtml(item.desc)}</div>
+              <div class="photo-card-btns">
+                <button class="btn-sm btn-museum" onclick="openMuseumLabel('${item.id}')">
+                  <i class="fa-solid fa-monument"></i> 라벨
+                </button>
+                <button class="btn-sm btn-download" onclick="downloadImage('${item.image}', '${item.grade}학년${item.classNum}반_${item.title}')">
+                  <i class="fa-solid fa-download"></i> 다운
+                </button>
+                <button class="btn-sm btn-delete" onclick="deleteSubmission('${item.id}')">
+                  <i class="fa-solid fa-trash"></i> 삭제
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error("데이터 로드 오류:", error);
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #ef4444; padding: 50px;">데이터를 불러오지 못했습니다.</p>';
       }
     }
 
- window.deleteSubmission = 비동기 함수(ID) {
- 한다면 (확인.('해당 작품을 삭제하시겠습니까?')) {
-        해라 {
- 대기 삭제Doc(doc(db, "제출", ID));
- 대기 렌더AdminDashboard();
-        } 또 만나 (오류) {
- console.error ("삭제 실패:", 오류);
- alert("삭제 도중 오류가 발생했습니다.");
+    window.deleteSubmission = async function(id) {
+      if (confirm('해당 작품을 삭제하시겠습니까?')) {
+        try {
+          await deleteDoc(doc(db, "submissions", id));
+          await renderAdminDashboard();
+        } catch (error) {
+          console.error("삭제 실패:", error);
+          alert("삭제 도중 오류가 발생했습니다.");
         }
       }
- }
+    };
 
- window.downloadImage = 함수(url, 파일 이름) {
- const a = document.createElement('a');
- a.href = url;
- a.target = '_blank';
- a.download = '율곡중_${filename}.jpg';
- document.body.appendChild(a);
- a.클릭 ();
- document.body.removeChild(a);
- }
+    window.downloadImage = function(base64Data, filename) {
+      const a = document.createElement('a');
+      a.href = base64Data;
+      a.download = `율곡중_${filename}.jpg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    };
 
- window.openMuseumLabel = 함수(id) {
- const 항목 = globalSubmissions.find(s => s.id === id);
- 만약 (!아이템)이 돌아온다면;
+    window.openMuseumLabel = function(id) {
+      const item = globalSubmissions.find(s => s.id === id);
+      if (!item) return;
 
- document.getElementById('m-title').텍스트 내용 = 항목.title;
- document.getElementById('m-artist').텍스트 내용 = '율곡중학교 ${item.grade}학년 ${item.classNum}반';
- document.getElementById('m-desk').텍스트 내용 = 항목.desc;
+      document.getElementById('m-title').textContent = item.title;
+      document.getElementById('m-artist').textContent = `율곡중학교 ${item.grade}학년 ${item.classNum}반`;
+      document.getElementById('m-desc').textContent = item.desc;
 
- document.getElementById('museum-label-modal').style.display = 'flex';
- }
+      document.getElementById('museum-label-modal').style.display = 'flex';
+    };
 
- window.exportToExcel = 함수 () {
- 만약 (전역 제출.length === 0) {
- alert('다운로드할 데이터가 없습니다.');
- 반환;
- }
+    window.exportToExcel = function() {
+      if (globalSubmissions.length === 0) {
+        alert('다운로드할 데이터가 없습니다.');
+        return;
+      }
 
- const excelData = globalSubmissions.map((항목, 인덱스) => {{
- "번호": 인덱스 + 1,
- "학년": '${item.grade}학년',
- "반": '${item.classNum}반',
- "작품 제목": 항목.title,
- "작품 설명": 항목.desc,
- "사진 URL": item.image,
- "제출 일시": item.createAt
- }));
+      const excelData = globalSubmissions.map((item, index) => ({
+        "번호": index + 1,
+        "학년": `${item.grade}학년`,
+        "반": `${item.classNum}반`,
+        "작품 제목": item.title,
+        "작품 설명": item.desc,
+        "제출 일시": item.createdAt
+      }));
 
- 컨스트럭트 워크시트 = XLSX.utils.json_to_sheet(excelData);
- 구성 워크북 = XLSX.utils.book_new ();
- XLSX.utils.book_append_sheet(workbook, 워크시트, "제출작품목록");
+      const worksheet = XLSX.utils.json_to_sheet(excelData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "제출작품목록");
 
- XLSX.writeFile(workbook, `제1회_율곡중학교_학급사진콘테스트_제출목록.xlsx`);
- };
+      XLSX.writeFile(workbook, `제1회_율곡중학교_학급사진콘테스트_제출목록.xlsx`);
+    };
 
- window.closeModal = 함수(modalId) {
- document.getElementById(modalId).style.display = 'none';
- };
+    window.closeModal = function(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    };
 
- 함수 이스케이프Html(텍스트) {
- (!text)가 반환되면;
- 텍스트 반환
- .replace(/&/g, "&amp;")
- .replace(///g, "<")
- .replace(/>/g, "&gt;")
- .replace(/"/g, "")
- .replace(/'/g, "");
- }
- </대본>
-</몸>
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
 </html>
